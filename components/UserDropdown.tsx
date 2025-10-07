@@ -14,19 +14,23 @@ import { Button } from "./ui/button";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { LogOut } from "lucide-react";
-import NavItems from "./Navitems";
+import NavItems from "@/components/Navitems";
+import { signOut } from "@/lib/actions/auth.actions";
 
 
 
 
-const UserDropdown = () => {
+
+const UserDropdown = ({user} :{user:User}) => {
     const router = useRouter();
 
-    const handleSignOut = async () => {
-        await router.push("/sign-in");
+     const handleSignOut = async () => {
+        await signOut();
+        router.push("/sign-in");
     }
 
-    const user = { name: "maanav", email: "maanav@gmail.com" };
+
+    // const user = { name: "maanav", email: "maanav@gmail.com" };
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -74,8 +78,9 @@ const UserDropdown = () => {
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="hidden sm:block bg-gray-600"/>
                 <nav className="sm:hidden">
-                    <NavItems/>
+                    <NavItems />
                 </nav>
+
 
 
                
