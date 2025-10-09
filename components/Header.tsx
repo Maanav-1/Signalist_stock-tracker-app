@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import NavItems from "./NavItems"
+import NavItems from "./Navitems"
 import UserDropdown from "./UserDropdown"
 import {searchStocks} from "@/lib/actions/finnhub.actions";
 

@@ -25,14 +25,19 @@ export function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// Formatted string like "$3.10T", "$900.00B", "$25.00M" or "$999,999.99"
+// Finnhub's `marketCapitalization` in `/stock/profile2` is returned in millions
+// (see Finnhub docs/sample). Convert to raw USD before formatting.
+// Returns strings like "$3.10T", "$900.00B", "$25.00M" or "$999,999.99"
 export function formatMarketCapValue(marketCapUsd: number): string {
   if (!Number.isFinite(marketCapUsd) || marketCapUsd <= 0) return 'N/A';
 
-  if (marketCapUsd >= 1e12) return `$${(marketCapUsd / 1e12).toFixed(2)}T`; // Trillions
-  if (marketCapUsd >= 1e9) return `$${(marketCapUsd / 1e9).toFixed(2)}B`; // Billions
-  if (marketCapUsd >= 1e6) return `$${(marketCapUsd / 1e6).toFixed(2)}M`; // Millions
-  return `$${marketCapUsd.toFixed(2)}`; // Below one million, show full USD amount
+  // Convert from Finnhub's millions -> USD
+  const usd = marketCapUsd * 1_000_000;
+
+  if (usd >= 1e12) return `$${(usd / 1e12).toFixed(2)}T`; // Trillions
+  if (usd >= 1e9) return `$${(usd / 1e9).toFixed(2)}B`; // Billions
+  if (usd >= 1e6) return `$${(usd / 1e6).toFixed(2)}M`; // Millions
+  return `$${usd.toFixed(2)}`; // Below one million, show full USD amount
 }
 
 export const getDateRange = (days: number) => {

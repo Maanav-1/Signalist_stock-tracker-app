@@ -46,7 +46,14 @@ const SignIn = () => {
                     placeholder="chellani.ma@northeatern.edu"
                     register={register}
                     error={errors.email}
-                    validation={{ required: 'Email is required', pattern: /^\w+@\w+\.\w+$/ }}
+                    // Allow dots and common characters in local-part; require a TLD of 2+ letters
+                    validation={{
+                        required: 'Email is required',
+                        pattern: {
+                            value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+                            message: 'Please enter a valid email address',
+                        },
+                    }}
                 />
 
                 <InputField
