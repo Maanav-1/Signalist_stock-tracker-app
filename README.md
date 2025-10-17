@@ -1,7 +1,5 @@
 # 📈 Signalist - Stock Tracker & Analysis App
 
-![Signalist App Screenshot](https://via.placeholder.com/800x400.png?text=Signalist+App+Screenshot+Here)
-
 Signalist is a modern, full-stack stock tracking application designed to help users make informed investment decisions. It provides real-time market data, personalized watchlists, interactive charts, and AI-powered daily email summaries tailored to the user's portfolio.
 
 ### ✨ [Live Demo Link ](https://signalist-stock-tracker-app-rho.vercel.app/)
@@ -134,6 +132,5 @@ Route: `/api/inngest` handles these scheduled tasks and event processing
 | `NODEMAILER_EMAIL`            | The Gmail address from which the daily summary emails will be sent.                                      |
 | `NODEMAILER_PASSWORD`         | The 16-digit Google App Password for the sending email account.                                          |
 | `NEXT_PUBLIC_FINNHUB_API_KEY` | Your API key for the Finnhub service to fetch stock data and news.                                      |
-
 
 
