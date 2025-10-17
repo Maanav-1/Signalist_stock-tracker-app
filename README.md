@@ -78,7 +78,7 @@ npm run dev
 
 Inngest powers our automated email delivery system:
 - **Welcome Emails**: Personalized AI-generated welcome messages when users sign up
-- **Daily News Digest**: Every day at 6 AM UTC, Inngest:
+- **Daily News Digest**: Every day at 12 PM UTC, Inngest:
   1. Fetches news relevant to each user's watchlist
   2. Uses AI to summarize and personalize the content
   3. Delivers a curated email digest of market updates
