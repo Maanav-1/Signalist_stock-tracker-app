@@ -15,5 +15,5 @@ export async function middleware(request: NextRequest) {
 export const config = {
 	matcher: [
         '/((?!api|_next/static|_next/image|favicon.ico|sign-in|sign-up|assets).*)',
-    ], // Specify the routes the middleware applies to
+    ], // the middleware applies to all requests unless they start with the above
 };
