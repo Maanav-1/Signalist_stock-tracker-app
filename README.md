@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Signalist - Stock Tracking & Analytics Platform 📈
 
-## Getting Started
+Signalist is a modern stock tracking application built with Next.js 14, offering real-time market data, personalized watchlists, and smart alerts. Monitor your favorite stocks, analyze market trends, and make informed investment decisions with our intuitive interface.
 
-First, run the development server:
 
+## ✨ Features
+
+- **Real-time Stock Data**: Live prices, market caps, and key metrics powered by Finnhub API
+- **Smart Watchlists**: Create and manage personalized stock watchlists with real-time updates
+- **Interactive Charts**: TradingView integration for professional-grade stock analysis
+- **Daily News Updates**: Receive personalized daily email digests of market news relevant to your watchlist
+- **User Authentication**: Secure email-based authentication system
+- **Responsive Design**: Seamless experience across desktop and mobile devices
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js 14, TypeScript, Tailwind CSS, shadcn/ui
+- **Backend**: Next.js Server Actions, MongoDB with Mongoose
+- **Authentication**: Custom auth system with email/password
+- **APIs**: Finnhub for market data, TradingView for charts
+- **Deployment**: Vercel
+- **Background Jobs**: Inngest for AI-powered email automation (welcome emails, daily news)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+1. Node.js 18+ installed
+2. MongoDB database (local or Atlas)
+3. Finnhub API key (get one at [finnhub.io](https://finnhub.io))
+
+### Environment Setup
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Maanav-1/Signalist_stock-tracker-app.git
+cd Signalist_stock-tracker-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Create a `.env.local` file with your environment variables:
+```bash
+# API Keys
+FINNHUB_API_KEY=your_finnhub_key
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Database
+MONGODB_URI=your_mongodb_uri
 
-## Learn More
+# Auth (generate secure random strings)
+NEXTAUTH_SECRET=your_secret
+NEXTAUTH_URL=http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+# Email to send summarized daily financial news 
+NODEMAILER_EMAIL=your_email
+NODEMAILER_PASSWORD=your_app_password
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Start the development server:
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Deploy on Vercel
+## 📱 Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Sign Up/Login**: Create an account or sign in with your email
+2. **Add Stocks**: Use the search bar to find and add stocks to your watchlist
+3. **Monitor**: Track real-time prices and performance on your dashboard
+4. **News Updates**: Receive daily curated news emails about your watchlist stocks
+5. **Analyze**: Use the interactive TradingView charts for technical analysis
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚡ Background Jobs (Inngest)
+
+Inngest powers our automated email delivery system:
+- **Welcome Emails**: Personalized AI-generated welcome messages when users sign up
+- **Daily News Digest**: Every day at 6 AM UTC, Inngest:
+  1. Fetches news relevant to each user's watchlist
+  2. Uses AI to summarize and personalize the content
+  3. Delivers a curated email digest of market updates
+  
+Route: `/api/inngest` handles these scheduled tasks and event processing
+
+
