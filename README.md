@@ -28,6 +28,7 @@ Signalist is a modern stock tracking application built with Next.js 14, offering
 1. Node.js 18+ installed
 2. MongoDB database (local or Atlas)
 3. Finnhub API key (get one at [finnhub.io](https://finnhub.io))
+4. Inngest CLI (will be used for background jobs)
 
 ### Environment Setup
 
@@ -59,12 +60,18 @@ NODEMAILER_EMAIL=your_email
 NODEMAILER_PASSWORD=your_app_password
 ```
 
-4. Start the development server:
+4. Start the development servers:
 ```bash
+# In first terminal: Next.js dev server
 npm run dev
+
+# In second terminal: Inngest dev server for background jobs
+npx inngest-cli@latest dev
 ```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+Note: The Inngest dev server is required for email automation (welcome emails and daily news updates) to work locally.
 
 ## 📱 Usage
 
@@ -78,7 +85,7 @@ npm run dev
 
 Inngest powers our automated email delivery system:
 - **Welcome Emails**: Personalized AI-generated welcome messages when users sign up
-- **Daily News Digest**: Every day at 12 PM UTC, Inngest:
+- **Daily News Digest**: Every day at 6 AM UTC, Inngest:
   1. Fetches news relevant to each user's watchlist
   2. Uses AI to summarize and personalize the content
   3. Delivers a curated email digest of market updates
