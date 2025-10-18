@@ -20,7 +20,7 @@ Signalist is a modern, full-stack stock tracking application designed to help us
 
 ## 🛠️ Tech Stack
 
-* **Framework**: Next.js 14 (App Router)
+* **Framework**: Next.js 15 (App Router)
 * **Language**: TypeScript
 * **Styling**: Tailwind CSS, Shadcn/UI
 * **Authentication**: Better Auth
